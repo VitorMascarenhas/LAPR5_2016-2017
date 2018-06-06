@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PortoGO.Web.ViewModels.PoiViewModel>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Business Hours
+        </th>
+        <th>
+            Time To Visit (h)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Details", "Poi", new { id = item.Id})" class="btn btn-default btn-info">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> Details
+                </a>
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.BusinessHoursFromHour - @item.BusinessHoursToHour
+            </td>
+            <td>
+                @item.TimeTovisit
+            </td>
+            <td>
+                <a href="#" class="btn btn-info map-view" data-longitude="@item.Location.Longitude" data-latitude="@item.Location.Latitude"><i class="fa fa-map-marker" aria-hidden="true"></i> View in map</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Map</h4>
+            </div>
+            <div class="modal-body insert-map">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

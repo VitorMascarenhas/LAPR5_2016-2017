@@ -1,0 +1,128 @@
+﻿@model IEnumerable<PortoGO.Web.ViewModels.PoiViewModel>
+@{
+    ViewBag.Title = "Add some points of interest";
+}
+
+<section>
+    <div class="container">
+        <div class="center">
+            <h2>@ViewBag.Title</h2>
+        </div>
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <table class="table table-striped">
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Business Hours
+                        </th>
+                        <th>
+                            Time To Visit (h)
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>
+
+                                <input type="checkbox" class="select" name="poi" value="@item.Id" data-id="@item.Id">
+                            </td>
+                            <td>
+                                @item.Description
+                            </td>
+                            <td>
+                                @item.BusinessHoursFromHour - @item.BusinessHoursToHour
+                            </td>
+                            <td>
+                                @item.TimeTovisit
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-info map-view" data-longitude="@item.Location.Longitude" data-latitude="@item.Location.Latitude"><i class="fa fa-map-marker" aria-hidden="true"></i> View in map</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="row">
+
+                <div class="form-actions no-color">
+                    <button class="btn btn-info save" type="submit" value="AddPoi"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button> |
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                </div>
+
+            </div>
+        }
+    </div>
+</section>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Map</h4>
+            </div>
+            <div class="modal-body insert-map">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+
+
+    <script>
+        $(document).ready(function () {
+            $('.map-view').click(function () {
+                var lat = $(this).data('latitude').replace(',', '.');
+                var lon = $(this).data('longitude').replace(',', '.');
+
+                var insert = $('.insert-map');
+                var src = '<iframe width="100%" height="400" src="http://www.mapsdirections.info/pt/crie-um-google-map/map.php?width=100%&height=400&hl=ru&coord=' + lat + ',' + lon + '&ie=UTF8&t=&z=14&iwloc=A&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+
+                insert.html(src);
+
+                $('#myModal').modal('show');
+            });
+
+            //$('.save').click(function () {
+
+            //    var id = [];
+
+            //    if ($('input[name="poi"]:checked').length = 0) {
+
+            //        alert('Select at least one point of interest');
+            //    }
+            //    else {
+            //        $('input[name="poi"]:checked').each(function () {
+            //            id.push($(this).data('id'));
+            //        });
+            //    }
+
+
+            //    return false;
+            //});
+        });
+    </script>
+
+
+
+}

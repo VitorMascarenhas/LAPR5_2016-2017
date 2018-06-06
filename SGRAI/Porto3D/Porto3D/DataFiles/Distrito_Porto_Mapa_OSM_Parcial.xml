@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2016-12-14T12:22:02Z"/>
+  <bounds minlat="41.1091" minlon="-8.7149" maxlat="41.2" maxlon="-8.5432"/>
+
+  <node id="112588576" lat="41.1689665" lon="-8.6444747" version="10" timestamp="2014-10-15T04:03:55Z" changeset="26086132" uid="2322965" user="ricar_gonçalves"/>
+  <node id="4468021931" lat="41.1688112" lon="-8.6443785" version="1" timestamp="2016-10-28T14:32:17Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="3130637786" lat="41.1685579" lon="-8.6440804" version="1" timestamp="2014-10-15T04:03:55Z" changeset="26086132" uid="2322965" user="ricar_gonçalves"/>
+  <node id="3130637785" lat="41.1683059" lon="-8.6438068" version="1" timestamp="2014-10-15T04:03:55Z" changeset="26086132" uid="2322965" user="ricar_gonçalves"/>
+  <node id="314553196" lat="41.1680768" lon="-8.6437482" version="3" timestamp="2014-10-15T04:03:55Z" changeset="26086132" uid="2322965" user="ricar_gonçalves"/>
+  <node id="25503962" lat="41.1677439" lon="-8.6438248" version="2" timestamp="2011-01-19T11:43:20Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="25503963" lat="41.1675709" lon="-8.6438606" version="1" timestamp="2007-02-03T11:56:26Z" changeset="207073" uid="5404" user="jmorais"/>
+  <node id="281726627" lat="41.1674262" lon="-8.6438649" version="1" timestamp="2008-07-28T13:44:22Z" changeset="614828" uid="15885" user="Eloi  Ribeiro"/>
+  <node id="25503965" lat="41.1672801" lon="-8.6438177" version="1" timestamp="2007-02-03T11:56:27Z" changeset="207073" uid="5404" user="jmorais"/>
+  <node id="281726628" lat="41.1671856" lon="-8.6437596" version="2" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="25503966" lat="41.1670819" lon="-8.6436726" version="2" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="281726629" lat="41.1669650" lon="-8.6435775" version="2" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="25503967" lat="41.1668521" lon="-8.6435160" version="2" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="281726630" lat="41.1667349" lon="-8.6434762" version="2" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="25503969" lat="41.1665997" lon="-8.6434938" version="2" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="281726631" lat="41.1665048" lon="-8.6435297" version="2" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="281726632" lat="41.1664224" lon="-8.6436124" version="2" timestamp="2011-03-29T20:38:42Z" changeset="7710740" uid="364739" user="j123b567"/>
+  <node id="25503970" lat="41.1663142" lon="-8.6437907" version="2" timestamp="2011-03-29T20:38:51Z" changeset="7710740" uid="364739" user="j123b567"/>
+  <node id="26016423" lat="41.1658735" lon="-8.6444774" version="5" timestamp="2016-11-02T19:25:19Z" changeset="43361039" uid="4400624" user="Sílvio Matos"/>
+  
+  <node id="26016419" lat="41.1670798" lon="-8.6424338" version="6" timestamp="2016-02-15T20:22:23Z" changeset="37233069" uid="47097" user="Josef K">
+    <tag k="exit_to" v="Boavista;Bessa"/>
+    <tag k="highway" v="motorway_junction"/>
+    <tag k="name" v="Boavista"/>
+  </node>
+  <node id="281726468" lat="41.1669635" lon="-8.6427322" version="2" timestamp="2011-01-19T11:43:21Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="25503993" lat="41.1669295" lon="-8.6428465" version="3" timestamp="2011-01-19T11:43:20Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="281726469" lat="41.1669303" lon="-8.6430039" version="2" timestamp="2011-01-19T11:43:20Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="25503994" lat="41.1669617" lon="-8.6431414" version="3" timestamp="2011-01-19T11:43:19Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="25503995" lat="41.1670147" lon="-8.6432498" version="3" timestamp="2011-01-19T11:43:18Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="112591235" lat="41.1671493" lon="-8.6434217" version="2" timestamp="2011-01-19T11:43:08Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="25503996" lat="41.1672823" lon="-8.6435503" version="2" timestamp="2011-01-19T11:43:09Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="112591239" lat="41.1674032" lon="-8.6436008" version="2" timestamp="2011-01-19T11:43:19Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="25503998" lat="41.1675207" lon="-8.6435717" version="2" timestamp="2011-01-19T11:43:07Z" changeset="7019552" uid="16696" user="Hike39"/>
+  <node id="281726470" lat="41.1676087" lon="-8.6434893" version="3" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="25503999" lat="41.1676499" lon="-8.6434218" version="3" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="281726471" lat="41.1676902" lon="-8.6432961" version="3" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="25504000" lat="41.1676979" lon="-8.6431748" version="4" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="25504002" lat="41.1676804" lon="-8.6430669" version="3" timestamp="2011-04-13T22:24:03Z" changeset="7856602" uid="423953" user="manuel carvalho"/>
+  <node id="4468021930" lat="41.1676362" lon="-8.6429743" version="1" timestamp="2016-10-28T14:32:17Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="4468021929" lat="41.1675748" lon="-8.6428948" version="1" timestamp="2016-10-28T14:32:17Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="4468021928" lat="41.1674594" lon="-8.6427423" version="1" timestamp="2016-10-28T14:32:17Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>
+  <node id="112590248" lat="41.1673856" lon="-8.6425430" version="10" timestamp="2016-10-28T14:32:18Z" changeset="43247656" uid="4400624" user="Sílvio Matos"/>  
+
+  <way id="4256484" version="11" timestamp="2016-10-28T14:32:21Z" changeset="43247656" uid="4400624" user="Sílvio Matos">
+    <nd ref="112588576"/>
+    <nd ref="4468021931"/>
+    <nd ref="3130637786"/>
+    <nd ref="3130637785"/>
+    <nd ref="314553196"/>
+    <nd ref="25503962"/>
+    <nd ref="25503963"/>
+    <nd ref="281726627"/>
+    <nd ref="25503965"/>
+    <nd ref="281726628"/>
+    <nd ref="25503966"/>
+    <nd ref="281726629"/>
+    <nd ref="25503967"/>
+    <nd ref="281726630"/>
+    <nd ref="25503969"/>
+    <nd ref="281726631"/>
+    <nd ref="281726632"/>
+    <nd ref="25503970"/>
+    <nd ref="26016423"/>
+    <tag k="highway" v="motorway_link"/>
+    <tag k="oneway" v="yes"/>
+	<tag k="name" v="Autoestrada do Norte"/>
+  </way>
+  <way id="4256485" version="10" timestamp="2016-10-28T14:32:21Z" changeset="43247656" uid="4400624" user="Sílvio Matos">
+    <nd ref="26016419"/>
+    <nd ref="281726468"/>
+    <nd ref="25503993"/>
+    <nd ref="281726469"/>
+    <nd ref="25503994"/>
+    <nd ref="25503995"/>
+    <nd ref="112591235"/>
+    <nd ref="25503996"/>
+    <nd ref="112591239"/>
+    <nd ref="25503998"/>
+    <nd ref="281726470"/>
+    <nd ref="25503999"/>
+    <nd ref="281726471"/>
+    <nd ref="25504000"/>
+    <nd ref="25504002"/>
+    <nd ref="4468021930"/>
+    <nd ref="4468021929"/>
+    <nd ref="4468021928"/>
+    <nd ref="112590248"/>
+    <tag k="destination" v="Boavista;Bessa"/>
+    <tag k="highway" v="motorway_link"/>
+    <tag k="oneway" v="yes"/>
+  </way>
+  
+</osm>

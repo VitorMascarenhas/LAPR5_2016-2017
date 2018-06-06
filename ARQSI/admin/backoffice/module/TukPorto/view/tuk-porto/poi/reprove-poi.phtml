@@ -1,0 +1,22 @@
+Backoffice &raquo; Pois &raquo; Reprovar Poi
+
+ <?php
+ $title = 'Deseja reprovar o Poi?';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <p>Tem a certeza que deseja reprovar o Poi?</p>
+ <?php
+ $url = $this->url('poi', array(
+     'action' => 'reprovePoi',
+     'id'     => $this->id,
+ ));
+ ?>
+ <form action="<?php echo $url; ?>" method="post">
+ <div>
+     <input type="hidden" name="id" value="<?php echo (int)$id; ?>" />
+     <input type="submit" name="del" class="botaoRed" value="Sim" />
+     <input type="submit" name="del" class="botao" value="Não" />
+ </div>
+ </form>

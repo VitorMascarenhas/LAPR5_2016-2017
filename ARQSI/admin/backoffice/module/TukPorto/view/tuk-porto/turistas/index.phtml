@@ -1,0 +1,25 @@
+Backoffice &raquo; Turistas &raquo; Listagem de Turistas
+
+ <?php
+ $title = 'Turistas';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     Listagem de turistas registados na aplicação.
+ </p>
+
+ <table class="table">
+ <tr>
+     <th>Username</th>
+     <th>Nome</th>
+     <th>Email</th>
+ </tr>
+ <?php foreach ($turistas as $turista) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($turista['UserName']);?></td>
+     <td><?php echo $this->escapeHtml($turista['DisplayName']);?></td>
+     <td><?php echo $this->escapeHtml($turista['Email']);?></td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

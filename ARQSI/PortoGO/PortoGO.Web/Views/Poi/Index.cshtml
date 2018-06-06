@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PortoGO.Web.ViewModels.PoiViewModel>
+
+@{
+    ViewBag.Title = "Points of interest";
+}
+
+<section>
+    <div class="container">
+        <div class="center">
+            <h2>@ViewBag.Title</h2>
+
+            @if (Request.IsAuthenticated)
+            {
+                <div class="lead">
+                    <p class="text-center"><span>Why dont you </span>@Html.ActionLink("Sugest a new Point of interest?", "Create")</p>
+                </div>
+            }
+            else
+            {
+                <div class="lead">
+                    <p class="center">Here are some points of interest</p>
+                </div>
+            }
+
+        </div>
+        <div class="row">
+            @if (!Request.IsAuthenticated)
+            {
+                @Html.Partial("_AnonymousPoiList", Model)
+            }
+            else
+            {
+                @Html.Partial("_PoiList", Model)
+            }
+
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.map-view').click(function () {
+                var lat = $(this).data('latitude').replace(',', '.');
+                var lon = $(this).data('longitude').replace(',', '.');
+
+                var insert = $('.insert-map');
+                var src = '<iframe width="100%" height="400" src="http://www.mapsdirections.info/pt/crie-um-google-map/map.php?width=100%&height=400&hl=ru&coord=' + lat + ',' + lon + '&ie=UTF8&t=&z=14&iwloc=A&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+
+                insert.html(src);
+
+                $('#myModal').modal('show');
+            });
+        });
+    </script>
+
+}

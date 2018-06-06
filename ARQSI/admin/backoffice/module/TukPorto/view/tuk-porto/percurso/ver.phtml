@@ -1,0 +1,61 @@
+Backoffice &raquo; Visitas &raquo; Detalhe da Visita
+
+ <?php
+ $title = 'Detalhe da Visita';
+ $this->headTitle($title);
+ $dados = $this->percurso;
+ $dataInicio = explode("T", $dados['StartDate']);
+ $dataFim = explode("T", $dados['Enddate']);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ 
+<div class="detalhePercurso">
+    <br><b>Utilizador:</b> <?=$dados['User']['DisplayName']?> (<?=$dados['User']['UserName']?>)
+    <hr>
+    <b>Data inicio:</b> <?=$dataInicio[0]?>
+    <br><b>Data fim:</b> <?=$dataFim[0]?>
+    <br><b>Duração da Visita:</b> <?=$dados['Duration']?>h
+
+    <div>        
+        <div style="float:left;width:49%;">
+        	<div class="infopercurso">
+                <br><h4>Percurso:</h4>
+                <? if (sizeof($route) > 0) { ?>
+                <div class="ruas">
+                 <? foreach ($route as $value) { ?>
+                    <div class="rua">
+                    	<div class="iconrua"></div>
+                    	<?=substr($value['Hour'],0,5)?> (tempo viagem <?=substr($value['RunTime'],0,5)?>) - <?=$value['PointOfInterest']['Description']?>
+                    	<span style="font-size:12px"><a href="<?php echo $this->url('percurso',array('action'=>'deleteRoute', 'id' => $value['Id']));?>">Remover</a></span>
+                    </div>
+                 <? } ?>
+                </div>
+                <? } ?>
+           	</div>
+            <a href="<?php echo $this->url('percurso',array('action'=>'addPoiPercurso', 'id' => $dados['Id']));?>">Adicionar Poi ao percurso</a>
+        </div>
+    
+        <div class="infopercurso" style="float:right;width:49%;border-bottom:0px;">
+            <br><h4>Inicio do percurso:</h4>
+            <div id="map" style="width: 100%; height: 300px;"></div>
+            <br><b>Inicio do percurso:</b> <?=$dados['StartLocation']['Name']?> [ <?=$dados['StartLocation']['Latitude']?> , <?=$dados['StartLocation']['Longitude']?> ]
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<hr>
+<div style="padding:20px 0"><a href="<?php echo $this->url('percurso',array('action'=>'index'));?>">Voltar à listagem</a></div>
+
+<script>
+function myMap() {
+  var myCenter = new google.maps.LatLng(<?=$dados['StartLocation']['Latitude']?>,<?=$dados['StartLocation']['Longitude']?>);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 16};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+<script src="http://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyBPV9bAyCDuo46E8P01D6Yu_6uodFQg2yU"></script>

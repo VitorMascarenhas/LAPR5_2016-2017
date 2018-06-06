@@ -1,0 +1,123 @@
+﻿@model PortoGO.Web.ViewModels.PoiViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<section>
+    <div class="container">
+        <div class="center">
+            <h2>Details @Model.Description</h2>
+        </div>
+        <div class="row">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BusinessHoursFromHour)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BusinessHoursFromHour)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BusinessHoursToHour)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BusinessHoursToHour)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LocationId)
+                </dt>
+
+                <dd>
+                    <span class="insert-map"></span>
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TimeTovisit)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TimeTovisit)
+                </dd>
+                <dt>
+                    Hashtags
+                </dt>
+                <dd>
+                    <span class="hashtags"></span>
+                </dd>
+            </dl>
+        </div>
+        <div class="row">
+            @if (Request.IsAuthenticated)
+            {
+                if (Model.IsOwner)
+                {
+                    <a href="@Url.Action("Edit",new { id = Model.Id})" class="btn btn-default btn-info">
+                        <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </a> <text> | </text>
+                }
+            }
+
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+</section>
+<br />
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.hashtags').tokenfield();
+            var hashtags = {
+                tags: []
+            };
+
+            @foreach (var item in @Model.Hashtags)
+            {
+            <text>
+
+            hashtags.tags.push({ value: '@item.UserId', label: '@item.Tag' });
+
+            </text>
+            }
+
+            @if (@Model.Hashtags.Any())
+            {
+            <text>
+            $('.hashtags').tokenfield('setTokens', hashtags.tags);
+            $('.hashtags').tokenfield('readonly');
+            </text>
+            }
+            else
+            {
+             <text>
+            $('.hashtags').tokenfield('disable');
+            </text>
+            }
+
+
+
+            var lat = '@Model.Location.Latitude'.replace(',', '.');
+            var lon = '@Model.Location.Longitude'.replace(',', '.');
+
+            var insert = $('.insert-map');
+            var src = '<iframe width="80%" height="400" src="http://www.mapsdirections.info/pt/crie-um-google-map/map.php?width=100%&height=400&hl=ru&coord=' + lat + ',' + lon + '&ie=UTF8&t=&z=14&iwloc=A&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+
+            insert.html(src);
+        });
+    </script>
+
+}
+
+

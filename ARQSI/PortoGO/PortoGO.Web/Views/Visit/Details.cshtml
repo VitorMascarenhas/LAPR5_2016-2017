@@ -1,0 +1,196 @@
+﻿@model PortoGO.Web.ViewModels.VisitViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    .ruas {
+        border-left: 3px solid #CCC;
+        padding-left: 30px;
+        min-height: 100px;
+        margin: 35px 20px;
+    }
+
+        .ruas .rua {
+            position: relative;
+            height: 60px;
+            color: #888;
+            font-size: 14px;
+        }
+
+            .ruas .rua:last-child {
+                height: auto;
+            }
+
+            .ruas .rua .iconrua {
+                position: absolute;
+                top: -5px;
+                left: -46px;
+                background-color: #CCC;
+                box-sizing: border-box;
+                border: 2px solid #FFF;
+                height: 30px;
+                width: 30px;
+                border-radius: 100%;
+                box-shadow: 0px 0px 1px 2px #CCC;
+            }
+
+            .ruas .rua:first-child .iconrua,
+            .ruas .rua:last-child .iconrua {
+                background-color: #179ce4;
+                box-shadow: 0 0 1px 2px #179ce4;
+                height: 34px;
+                left: -48px;
+                top: -6px;
+                width: 34px;
+            }
+</style>
+<section>
+    <div class="container">
+        <div class="center">
+            <h2>Details @Model.Name</h2>
+        </div>
+        <div class="row">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StartDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Enddate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Enddate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StartLocation)
+                </dt>
+
+                <dd>
+                    <span class="insert-map"></span>
+                </dd>
+
+            </dl>
+        </div>
+        <div class="row" style="padding-bottom:10px;">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        </div>
+        <div class="row">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#poi" aria-controls="home" role="tab" data-toggle="tab">Points of Interest</a></li>
+                <li role="presentation"><a href="#route" aria-controls="profile" role="tab" data-toggle="tab">Routes</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="poi">
+
+                    <a href="#" class="btn btn-info add-poi" data-toggle="modal" data-target="#poi-modal"><i class="fa fa-plus" aria-hidden="true"></i> Add Poi</a>
+
+                    @if (!Request.IsAuthenticated)
+                    {
+                        @Html.Partial("_AnonymousPoiList", Model.PointsOfInterests)
+                    }
+                    else
+                    {
+                        @Html.Partial("_PoiVisitList", Model.PointsOfInterests)
+                    }
+                </div>
+                <div role="tabpanel" class="tab-pane" id="route">
+                    <div class="ruas">
+                        @foreach (var item in Model.Routes)
+                        {
+                            using (Html.BeginForm("DeleteRoute", "Visit", FormMethod.Post, new { visitId = ViewBag.VisitId }))
+                            {
+                                <input type="text" name="VisitId" style="display:none;" value="@ViewBag.VisitId" />
+                                <input type="text" name="RouteId" style="display:none;" value="@item.Id" />
+                                <div class="rua">
+
+                                    <div class="iconrua"></div>
+                                    @item.Hour (Travel time @item.RunTime) - @item.PointOfInterest.Description
+                                    <span style="font-size:12px"><input type="submit" value="Delete" class="btn btn-danger" /></span>
+                                </div>
+                                <br />
+                            }
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div id="poi-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ad a new point of interest to this visit</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AddPoi", "Visit", FormMethod.Post, new { visitId = ViewBag.VisitId }))
+                {
+                    <input type="text" id="VisitId" name="VisitId" style="display:none;" value="@ViewBag.VisitId" />
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PoisToAdd, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.PoiToAddId, new SelectList(Model.PoisToAdd, "Id", "Description"), "Select location...", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PoiToAddId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-theme" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+
+
+            var lat = '@Model.StartLocation.Latitude'.replace(',', '.');
+            var lon = '@Model.StartLocation.Longitude'.replace(',', '.');
+
+            var insert = $('.insert-map');
+            var src = '<iframe width="80%" height="400" src="http://www.mapsdirections.info/pt/crie-um-google-map/map.php?width=100%&height=400&hl=ru&coord=' + lat + ',' + lon + '&ie=UTF8&t=&z=14&iwloc=A&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+
+            insert.html(src);
+        });
+    </script>
+
+}

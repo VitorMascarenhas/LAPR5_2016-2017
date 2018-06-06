@@ -1,0 +1,42 @@
+Backoffice &raquo; Pois &raquo; Listagem de Pois
+
+ <?php
+ $title = 'Listagem de Pois';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <p><a href="<?php echo $this->url('poi', array('action'=>'add'));?>">Criar um novo POI</a></p>
+
+ <table class="table">
+ <tr>
+ 	 <th>Descrição</th>
+     <th>Hora de Visita</th>
+     <th>Localização</th>
+     <th>Tempo de visita</th>
+     <th>Estado</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($pois as $poi) : ?>
+ <tr>
+     <td><a href="<?php echo $this->url('poi',array('action'=>'ver', 'id' => $poi['Id']));?>"><?php echo $poi['Description'];?></a></td>
+     <td><?php echo substr($poi['BusinessHours']['FromHour'],0,5)." - ". substr($poi['BusinessHours']['ToHour'],0,5);?></td>
+     <td><?php echo $poi['Location']['Name'];?></td>
+     <td><?php echo $poi['TimeTovisit'];?>h</td>
+     <td>
+     <?  if ( $poi['Status'] == 0) { ?>
+     <a href="<?php echo $this->url('poi',array('action'=>'aprovePoi', 'id' => $poi['Id']));?>">Aprovar?</a> / <a href="<?php echo $this->url('poi',array('action'=>'reprovePoi', 'id' => $poi['Id']));?>">Rejeitar?</a>
+     <? } else if ($poi['Status'] == 1){
+         echo "<span class='green'>".$estado[$poi['Status']]."</span>";
+     } else {
+             echo "<span class='red'>".$estado[$poi['Status']]."</span>";
+     } ?>
+     </td>
+     
+     <td>
+         <a href="<?php echo $this->url('poi',array('action'=>'edit', 'id' => $poi['Id']));?>">Editar</a> / 
+         <a href="<?php echo $this->url('poi',array('action'=>'delete', 'id' => $poi['Id']));?>">Apagar</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

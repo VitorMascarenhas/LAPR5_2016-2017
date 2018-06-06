@@ -1,0 +1,22 @@
+Backoffice &raquo; Pois &raquo; Criar Poi
+
+ <?php
+ $title = 'Criar um novo Poi';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form->setAttribute('action', $this->url('poi', array('action' => 'add')));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('descricao'));
+ echo $this->formRow($form->get('horasDe'));
+ echo $this->formRow($form->get('horasPara'));
+ echo $this->formRow($form->get('localizacao'));
+ echo $this->formRow($form->get('tempoVisita'));
+ echo $this->formRow($form->get('status'));
+ echo $this->formSubmit($form->get('submit'));
+ echo $this->form()->closeTag();
+ 

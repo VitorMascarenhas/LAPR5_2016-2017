@@ -1,0 +1,44 @@
+Backoffice &raquo;  Visitas  &raquo; Listagem de Visitas
+
+ <?php
+ $title = 'Listagem de Visitas';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+
+
+ <table class="table">
+ <tr>
+ 	 <th>Nome</th>
+ 	 <th>Data inicio</th>
+ 	 <th>Data fim</th>
+ 	 <th>Local de Inicio</th>
+     <th>Percurso</th>
+ </tr>
+ <?php foreach ($percursos as $percurso) : 
+        $dataInicio = explode("T", $percurso['StartDate']);
+        $dataFim = explode("T", $percurso['Enddate']);
+        $estradas = sizeof($percurso['Route']);
+ ?>
+ <tr>
+     <td><a href="<?php echo $this->url('percurso',array('action'=>'ver', 'id' => $percurso['Id']));?>"><?=$percurso['Name'];?></a></td>
+     <td><?=$dataInicio[0];?></td>
+     <td><?=$dataFim[0];?></td>
+     <td>
+     <? if ($percurso['StartLocation']['Name'] != '') {
+     	echo $percurso['StartLocation']['Name'];
+     } else {
+       echo "[".$percurso['StartLocation']['Latitude'].",".$percurso['StartLocation']['Longitude']."]";   
+     } ?>
+     </td>
+     <td>
+     <? if ($estradas > 0 ) { ?>
+     	<?=$estradas?> pois
+     <? } else { ?>
+     	Sem percurso
+     <? } ?>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

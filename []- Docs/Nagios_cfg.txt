@@ -1,0 +1,146 @@
+
+asist@uvm147:/etc/nagios3/conf.d$ vi hostgroups_laprv.cfg
+define hostgroup{
+        hostgroup_name  Windows Servers
+}
+
+define hostgroup{
+        hostgroup_name  Linux Servers
+}
+
+
+asist@uvm147:/etc/nagios3/conf.d$ vi contacts_laprv.cfg
+define contact{
+        contact_name                    Sergio
+        alias                           Sergio Oliveira
+        service_notification_period     24x7
+        host_notification_period        24x7
+        host_notification_options       d,u,r,f,s
+        service_notification_options    u,r,f,s
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           1121060@isep.ipp.pt
+        pager                           351916031338
+}
+
+define contact{
+        contact_name                    Andre
+        alias                           Andre Teixeira
+        service_notification_period     24x7
+        host_notification_period        24x7
+        host_notification_options       d,u,r,f,s
+        service_notification_options    u,r,f,s
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           1101153@isep.ipp.pt
+        pager                           351967281299
+}
+
+
+
+define contact{
+        contact_name                    Mario
+        alias                           Mario Ferreira
+        service_notification_period     24x7
+        host_notification_period        24x7
+        host_notification_options       d,u,r,f,s
+        service_notification_options    u,r,f,s
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           1090698@isep.ipp.pt
+        pager                           351911799516
+}
+
+define contact{
+        contact_name                    Miguel
+        alias                           Miguel Carneiro
+        service_notification_period     24x7
+        host_notification_period        24x7
+        host_notification_options       d,u,r,f,s
+        service_notification_options    u,r,f,s
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           1990895@isep.ipp.pt
+        pager                           351918602874
+}
+
+define contact{
+        contact_name                    Vitor
+        alias                           Vitor Mascarenhas
+        service_notification_period     24x7
+        host_notification_period        24x7
+        host_notification_options       d,u,r,f,s
+        service_notification_options    u,r,f,s
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           1120035@isep.ipp.pt
+        pager                           351965213625
+}
+
+
+define contact{
+        contact_name                    Carlos
+        alias                           Carlos Lopes
+        service_notification_period     24x7
+        host_notification_period        24x7
+        host_notification_options       d,u,r,f,s
+        service_notification_options    u,r,f,s
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           1120013@isep.ipp.pt
+        pager                           351919401145
+}
+
+define contact{
+        contact_name                    Beatriz
+        alias                           Beatriz Ferreira
+        service_notification_period     24x7
+        host_notification_period        24x7
+        host_notification_options       d,u,r,f,s
+        service_notification_options    u,r,f,s
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           1120268@isep.ipp.pt
+        pager                           351913585369
+}
+
+define contactgroup{
+        contactgroup_name               Lapr5
+        alias                           Monitorizacao de Lapr5
+        members                         Sergio,Andre,Miguel,Beatriz,Carlos,Vitor,Mario
+}
+
+
+asist@uvm147:/etc/nagios3/servers$ vi wvm_webapi.cfg
+define host{
+        use                     generic-host
+        host__name              wvm
+        alias                   webapi
+        address                 10.8.11.147
+        check_command           check_http
+        notification_options    d,u,r,f,s
+        notification_interval   3
+        check_interval          2
+        retry_interval          1
+        contact_groups          Lapr5
+        hostgroups              http-servers
+}
+
+define service{
+        use                     generic-service
+        service_description     HTTP
+        check_command           check_http
+        host_name               webapi
+        contact_groups          Lapr5
+}
+
+define service{
+        use                     generic-service
+        service-description     HTTPS
+        check_command           check_https
+        host_name               webapi
+        contact_groups          Lapr5
+}
+
+
+Sendgrid Configuration:

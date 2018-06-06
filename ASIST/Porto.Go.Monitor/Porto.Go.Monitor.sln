@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porto.Go.Monitor.Service", "Porto.Go.Monitor.Service\Porto.Go.Monitor.Service.csproj", "{C95C1541-5919-497B-9541-291C4A83B383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porto.Go.Monitor.TestService", "Porto.Go.Monitor.TestService\Porto.Go.Monitor.TestService.csproj", "{43757882-DB63-476E-9086-956544E3417B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C95C1541-5919-497B-9541-291C4A83B383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C95C1541-5919-497B-9541-291C4A83B383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C95C1541-5919-497B-9541-291C4A83B383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C95C1541-5919-497B-9541-291C4A83B383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43757882-DB63-476E-9086-956544E3417B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43757882-DB63-476E-9086-956544E3417B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43757882-DB63-476E-9086-956544E3417B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43757882-DB63-476E-9086-956544E3417B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

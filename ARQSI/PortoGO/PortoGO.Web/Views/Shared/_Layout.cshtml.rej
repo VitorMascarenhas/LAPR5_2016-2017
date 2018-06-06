@@ -1,0 +1,9 @@
+diff a/ARQSI/PortoGO/PortoGO.Web/Views/Shared/_Layout.cshtml b/ARQSI/PortoGO/PortoGO.Web/Views/Shared/_Layout.cshtml	(rejected hunks)
+@@ -28,7 +28,6 @@
+                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                         <li>@Html.ActionLink("About", "About", "Home")</li>
+                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+-                        <li>@Html.ActionLink("Consult Points of Interest", "index", "Poi")</li>
+                         <li>@Html.ActionLink("Points of Interest", "index", "Poi")</li>
+                         <li>@Html.ActionLink("Visits", "index", "Visit")</li>
+                     </ul>

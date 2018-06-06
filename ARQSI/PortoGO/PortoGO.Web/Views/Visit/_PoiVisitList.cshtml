@@ -1,0 +1,93 @@
+﻿@model IEnumerable<PortoGO.Web.ViewModels.PoiViewModel>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Business Hours
+        </th>
+        <th>
+            Time To Visit (h)
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+
+                <a href="@Url.Action("DeletePoi", "Visit", new { visitId = @ViewBag.VisitId, id = item.Id })" class="btn btn-default btn-danger">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i> Exclude from visit
+                </a>
+
+
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.BusinessHoursFromHour - @item.BusinessHoursToHour
+            </td>
+            <td>
+                @item.TimeTovisit
+            </td>
+            <td>
+                @item.Status
+            </td>
+            <td>
+                <a href="#" class="btn btn-info map-view" data-longitude="@item.Location.Longitude" data-latitude="@item.Location.Latitude"><i class="fa fa-map-marker" aria-hidden="true"></i> View in map</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Map</h4>
+            </div>
+            <div class="modal-body insert-map">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.map-view').click(function () {
+                var lat = $(this).data('latitude').replace(',', '.');
+                var lon = $(this).data('longitude').replace(',', '.');
+
+                var insert = $('.insert-map');
+                var src = '<iframe width="100%" height="400" src="http://www.mapsdirections.info/pt/crie-um-google-map/map.php?width=100%&height=400&hl=ru&coord=' + lat + ',' + lon + '&ie=UTF8&t=&z=14&iwloc=A&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+
+                insert.html(src);
+
+                $('#myModal').modal('show');
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+
+</head>
+<body class="homepage">
+    <header id="header">
+        @Html.Partial("_Navbar")
+
+    </header><!--/header-->
+
+    <div class="body-content">
+        <div class="body-content-inside">
+            @*<div class="paralax-bg"></div>
+            <div class="jumbotron">
+                <h1>Porto GO!</h1>
+                <p class="lead">+ um slogan </p>
+            </div>*@
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    PortoVisitas S. A.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+    <script src="~/Scripts/app.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

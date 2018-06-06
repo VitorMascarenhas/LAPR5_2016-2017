@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortoGO.DB", "PortoGO.DB\PortoGO.DB.csproj", "{BE556F84-93B1-423E-AA09-009483408778}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortoGO.Web", "PortoGO.Web\PortoGO.Web.csproj", "{50716479-D1E5-4511-9B0F-8E506BE7361C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{29DF0DAC-785A-47D9-9B8D-BC2C4C560812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortoGO.DB.Tests", "Tests\PortoGO.DB.Tests\PortoGO.DB.Tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortoGO.Web.Tests", "Tests\PortoGO.Web.Tests\PortoGO.Web.Tests.csproj", "{A311B08C-D3B4-4659-A9FE-2C12B0D9216C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortoGo.WebApi", "PortoGo.WebApi\PortoGo.WebApi.csproj", "{6B7DBA81-08E1-42C1-B587-3105CF557678}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortoGo.WebApi.Tests", "PortoGo.WebApi.Tests\PortoGo.WebApi.Tests.csproj", "{6DB79975-29BF-41F4-AA76-86B2E3D680EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportMap", "ImportMap\ImportMap.csproj", "{F4A1DF64-321B-4CC9-BE8F-A82531A77F38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE556F84-93B1-423E-AA09-009483408778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE556F84-93B1-423E-AA09-009483408778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE556F84-93B1-423E-AA09-009483408778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE556F84-93B1-423E-AA09-009483408778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50716479-D1E5-4511-9B0F-8E506BE7361C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50716479-D1E5-4511-9B0F-8E506BE7361C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50716479-D1E5-4511-9B0F-8E506BE7361C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50716479-D1E5-4511-9B0F-8E506BE7361C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A311B08C-D3B4-4659-A9FE-2C12B0D9216C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A311B08C-D3B4-4659-A9FE-2C12B0D9216C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A311B08C-D3B4-4659-A9FE-2C12B0D9216C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A311B08C-D3B4-4659-A9FE-2C12B0D9216C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7DBA81-08E1-42C1-B587-3105CF557678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7DBA81-08E1-42C1-B587-3105CF557678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7DBA81-08E1-42C1-B587-3105CF557678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7DBA81-08E1-42C1-B587-3105CF557678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB79975-29BF-41F4-AA76-86B2E3D680EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB79975-29BF-41F4-AA76-86B2E3D680EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB79975-29BF-41F4-AA76-86B2E3D680EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB79975-29BF-41F4-AA76-86B2E3D680EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A1DF64-321B-4CC9-BE8F-A82531A77F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A1DF64-321B-4CC9-BE8F-A82531A77F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A1DF64-321B-4CC9-BE8F-A82531A77F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A1DF64-321B-4CC9-BE8F-A82531A77F38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8EDF4429-251A-416D-BB68-93F227191BCF} = {29DF0DAC-785A-47D9-9B8D-BC2C4C560812}
+		{A311B08C-D3B4-4659-A9FE-2C12B0D9216C} = {29DF0DAC-785A-47D9-9B8D-BC2C4C560812}
+		{6DB79975-29BF-41F4-AA76-86B2E3D680EA} = {29DF0DAC-785A-47D9-9B8D-BC2C4C560812}
+	EndGlobalSection
+EndGlobal

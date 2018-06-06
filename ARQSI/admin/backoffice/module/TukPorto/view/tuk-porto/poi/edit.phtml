@@ -1,0 +1,27 @@
+Backoffice &raquo; Pois &raquo; Edição do Poi 
+
+<style>
+input {min-width:300px;max-width:100%;}
+
+</style>
+
+ <?php
+ $title = 'Editar Poi';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url('poi',array('action' => 'edit','id' => $this->id)));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('descricao'));
+ echo $this->formRow($form->get('horasDe'));
+ echo $this->formRow($form->get('horasPara'));
+ echo $this->formRow($form->get('localizacao'));
+ echo $this->formRow($form->get('tempoVisita'));
+ echo $this->formRow($form->get('status'));
+ echo $this->formSubmit($form->get('submit'));
+ echo $this->form()->closeTag();

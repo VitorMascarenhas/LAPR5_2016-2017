@@ -1,0 +1,170 @@
+﻿@model PortoGO.Web.ViewModels.CreateVisitViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="center">
+                <h2>Create a new Visit</h2>
+                <p class="lead">
+                    Tell us where do you want to go.
+                </p>
+            </div>
+            
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Enddate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Enddate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Enddate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StartLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.StartLocation , new { htmlAttributes = new { @class = "form-control hidden" } })
+                                <div id="map" class="map" style="width:100%;height:500px"></div>
+                                @Html.ValidationMessageFor(model => model.StartLocation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ReturnToStart, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.ReturnToStart)
+                                @Html.ValidationMessageFor(model => model.ReturnToStart, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default btn-theme" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+@section scripts{
+@*<script src="https://openlayers.org/en/v3.20.1/build/ol.js" type="text/javascript"></script>*@
+<script>
+    var map;
+    var markers = [];
+
+    function myMap() {
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+            center: new google.maps.LatLng(41.1484572, -8.6129351),
+            zoom: 14
+        };
+        map = new google.maps.Map(mapCanvas, mapOptions);
+
+        google.maps.event.addListener(map, 'click', function (event) {
+            placeMarker(map, event.latLng);
+        });
+    }
+
+    function placeMarker(map, location) {
+        if (markers.length > 0) {
+            markers[0].setMap(null);
+            markers = [];
+        }
+
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+        markers.push(marker);
+        var infowindow = new google.maps.InfoWindow({
+            content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+        });
+        infowindow.open(map, marker);
+
+        $('#StartLocation').val(location.lat() + ',' + location.lng());
+    }
+</script>
+<script src="http://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyBPV9bAyCDuo46E8P01D6Yu_6uodFQg2yU&libraries=places"></script>
+@*<script type="text/javascript">
+    var layer = new ol.layer.Tile({
+        source: new ol.source.OSM()
+    });
+
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([37.41, 8.82]),
+          zoom: 4,
+          
+        }),
+        layers: [layer],
+      });
+
+      var select = new ol.interaction.Select({
+          layers: [layer],
+          style: new ol.style.Style({
+              stroke: new ol.style.Stroke({
+                  color: '#0288D1',
+                  width: 2
+              })
+          })
+      });
+      map.addInteraction(select);
+
+      select.on('select', function (e) {
+          var coord = evt.mapBrowserEvent.coordinate;
+          console.info(coord);
+          var feat = new ol.Feature({
+              geometry: new ol.geom.Point(e.coordinate),
+              style: style1
+          });
+          alert(e.coordinate);
+          feat.setStyle(style1);
+
+          layerVector.getSource().addFeature(feat);
+      });
+
+</script>*@
+}

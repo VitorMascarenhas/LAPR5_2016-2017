@@ -1,0 +1,103 @@
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('Backoffice %sPortoVisitas%s'), '<span class="zf-green">', '</span>') ?></h1>
+    <p><?php echo sprintf($this->translate('Bem vindo, esta no painel de admin do PortoVisitas!!')); ?></p>
+    <p><a class="btn btn-success btn-lg" href="<?php echo $this->url('poi') ?>"><?php echo $this->translate('Ver todos os Pois') ?> &raquo;</a></p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-5">
+        <div class="panel panel-default">
+        	<div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Pois e Turistas') ?></h3>
+            </div>
+            <div class="panel-body">
+                <div id="donutchart"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="panel panel-default">
+        	<div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Estado dos pois') ?></h3>
+            </div>
+            <div class="panel-body">
+                <div id="chart_div"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-2">
+        <div class="panel panel-default" style="height:322px;">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Estatísticas') ?></h3>
+            </div>
+            <div class="panel-body">
+            	<p><?php echo sprintf($this->translate('Turistas')); ?>:  <?php echo $this->total_users?></p>
+            	<a href="<?php echo $this->url('turistas') ?>"><?php echo $this->translate('Ver Turistas') ?></a>
+            	<hr>
+            	<p><?php echo sprintf($this->translate('Pois existentes')); ?>:  <?php echo $this->total_pois?></p>
+            	<a href="<?php echo $this->url('poi') ?>"><?php echo $this->translate('Ver Pois') ?></a>
+            	<hr>
+        		<p><?php echo sprintf($this->translate('Pois pendentes')); ?>:  <?php echo $this->total_pois_pendentes?></p>
+                <p><?php echo sprintf($this->translate('Pois aprovados')); ?>:  <?php echo $this->total_pois_aprovados?></p>
+                <p><?php echo sprintf($this->translate('Pois rejeitados')); ?>:  <?php echo $this->total_pois_rejeitados?></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    	// Chart 1
+        var total_pois = <?php echo $this->total_pois?>;
+        var total_users = <?php echo $this->total_users?>;
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Pois', total_pois],
+          ['Turistas', total_users]
+        ]);
+        var options = {'width':400,'height':250};
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+        }
+        </script>
+
+    <script type="text/javascript">
+    	// Chart 2
+        var total_pois_pendentes = <?php echo $this->total_pois_pendentes?>;
+        var total_pois_aprovados = <?php echo $this->total_pois_aprovados?>;
+        var total_pois_rejeitados = <?php echo $this->total_pois_rejeitados?>;
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Pizza');
+        data.addColumn('number', 'Populartiy');
+        data.addRows([
+          ['Pendentes', total_pois_pendentes],
+          ['Aceites', total_pois_aprovados],
+          ['Rejeitados', total_pois_rejeitados]
+        ]);
+        var options = {'width':400,'height':250,
+        		slices: {
+                    0: { color: 'orange' },
+                    1: { color: 'green' },
+                    2: { color: 'red' }
+                  }
+                };
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+        }
+    </script>
+
+
+    
+

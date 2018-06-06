@@ -1,0 +1,58 @@
+Backoffice &raquo; Pois &raquo; Detalhe do Poi
+
+<?php
+$title = 'Detalhe de Poi';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+
+<div class="detalhePoi">
+    <br><b>Descrição:</b> <?php echo $this->poi['Description'];?>
+    <br><b>Hora de Visita:</b> <?php echo substr($this->poi['BusinessHours']['FromHour'],0,5);?> - <?php echo substr($this->poi['BusinessHours']['ToHour'],0,5);?>
+    <br><b>Localização:</b> <?php echo $this->poi['Location']['Name'];?>
+    <br><b>Tempo de visita:</b> <?php echo $this->poi['TimeTovisit'];?>h
+    
+    <? if(sizeof($this->poi['Hashtags'])>0) { ?>
+    <br><b>Hashtags:</b>
+        <? foreach ($this->poi['Hashtags'] as $value) {
+                echo "<span class='hashtag'>#".trim($value['Tag'])."</span>";
+        } 
+    } ?>
+    <br><br><br><b>Estado:</b> 
+         <?  if ( $this->poi['Status'] == 0) { 
+         echo "<span class='orange'>".$estado[$this->poi['Status']]."</span> - ";?>
+         <a href="<?php echo $this->url('poi',array('action'=>'aprovePoi', 'id' => $this->poi['Id']));?>">Aprovar?</a> / <a href="<?php echo $this->url('poi',array('action'=>'reprovePoi', 'id' => $this->poi['Id']));?>">Rejeitar?</a>
+         <? } else if ($this->poi['Status'] == 1){
+             echo "<span class='green'>".$estado[$this->poi['Status']]."</span>";
+         } else {
+                 echo "<span class='red'>".$estado[$this->poi['Status']]."</span>";
+         } ?>
+         
+    <div style="padding:40px 0">
+    <a href="<?php echo $this->url('poi',array('action'=>'edit', 'id' => $this->poi['Id']));?>">Editar</a> / 
+    <a href="<?php echo $this->url('poi',array('action'=>'delete', 'id' => $this->poi['Id']));?>">Apagar</a>
+    </div>
+</div>
+ 
+<div style="float:left; width: 60%; margin:20px 0;">
+	<div id="map" style="width:100%; height:400px;background-color:#EEE;"></div>
+	<a style="font-size:12px;" target="_blank" href="https://www.google.com/maps/place/@<?=$this->poi['Location']['Latitude']?>,<?=$this->poi['Location']['Longitude']?>,16z">Ver no google maps</a>
+</div><br />
+
+<div style="clear:both"></div>
+
+<hr>
+<a href="<?php echo $this->url('poi',array('action'=>'index'));?>">Voltar à listagem</a>
+
+<script>
+function myMap() {
+  var myCenter = new google.maps.LatLng(<?=$this->poi['Location']['Latitude']?>,<?=$this->poi['Location']['Longitude']?>);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 16};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+<script src="http://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyBPV9bAyCDuo46E8P01D6Yu_6uodFQg2yU"></script>

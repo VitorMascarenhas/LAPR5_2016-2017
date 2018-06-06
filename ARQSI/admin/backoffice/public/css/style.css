@@ -1,0 +1,211 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.zf-green {
+    color: #68b604;
+}
+
+b, p {color:#666;}
+
+.detalhePercurso .infopercurso h4 {
+	color:#999;
+	border-bottom:1px solid #999;
+	width:100%;
+	padding-bottom:10px;
+	font-weight:normal;
+	font-style: italic;
+	margin:20px 0 0 0;
+}
+
+.detalhePercurso .infopercurso {
+	border-bottom:1px solid #CCC;
+	width:100%;
+	margin-bottom:30px;
+}
+
+.clear {clear:both;}
+
+
+
+.btn-success {
+  background-color: #57a900;
+  background-image: -moz-linear-gradient(top, #70d900, #57a900);
+  background-image: -ms-linear-gradient(top, #70d900, #57a900);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+  background-image: -o-linear-gradient(top, #70d900, #57a900);
+  background-image: linear-gradient(top, #70d900, #57a900);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}
+
+.nav.navbar-nav {width:100%;border-box:box-sizing;padding-right:15px;}
+div.container table {margin:40px 0;}
+
+form label, form label span {
+    display: block;
+    padding: 2px 0;
+}
+
+.navbar-brand {
+	color:#FFF;
+}
+
+.botao, .botaoRed {
+	 background-color: #378fff;
+	 padding:5px 20px;
+	 border:0px;
+	font-family:Helvetica Neue, Arial;
+	font-size:12px;
+	font-weight:bold;
+	color:#FFF;
+	border-radius:5px;
+	margin:10px 0;
+}
+
+.botaoRed {
+	 background-color: #fe323b;
+}
+
+.botao:hover {
+	 background-color: #183dfe;
+}
+
+.botaoRed:hover {
+	 background-color: #cf0424;
+}
+
+.zonalogin {
+	text-align:center;
+	width:300px;
+	margin:50px auto;
+	background-color: #eee;
+	border:1px solid #ccc;
+	border-radius:10px;
+	padding:10px 20px 20px 20px;
+}
+
+.zonalogin input {
+	max-width:100%;
+	min-width:70%;
+}
+
+
+.zonalogin h2{
+	padding-bottom:10px;
+}
+
+.panel-body hr {
+	margin:15px;
+}
+
+
+.panel-body a {
+	font-size:12px;
+	line-height:140%;
+}
+
+.red {color:red;}
+.green {color:green;}
+.orange {color:orange;}
+
+.jumbotron {
+	margin-top:15px;
+    padding-bottom: 30px;
+    padding-top: 25px;
+}
+
+.nav > li {
+	border-left:1px solid #333;
+	border-right:1px solid #000;
+}
+
+ul.nav {
+    border-left:1px solid #000;
+	margin-left:10px;
+}
+
+.nav > li:last-child {
+    border-right:1px solid #000;
+	border-left:1px solid #000;
+}
+
+.nav > li:hover {
+    background-color:#333;
+}
+
+input, button, select, textarea {
+    border: 1px solid #ddd;
+    font-size: 13px;
+    min-height: 31px;
+    max-width: 100%;
+    min-width: 300px;
+    padding: 5px 5px;
+}
+
+.detalhePoi {
+	float:left;
+	width:40%;
+}
+
+.detalhePoi b{
+	line-height:25px;
+}
+
+.detalhePoi .hashtag {
+	display:inline-block;
+	padding:2px 8px;
+	font-size: 11px;
+	line-height: 15px;
+	background-color:#EEE;
+	border:1px solid #CCC;
+	border-radius:5px;
+	margin:2px;
+	
+}
+
+.ruas {border-left:3px solid #CCC;padding-left:30px;min-height:100px;margin:35px 20px;}
+.ruas .rua {position:relative; height:60px; color: #888;font-size: 14px;}
+.ruas .rua:last-child {height: auto;}
+.ruas .rua .iconrua {position:absolute;top:-5px; left:-46px; background-color:#CCC; box-sizing:border-box;border:2px solid #FFF; height:30px;width:30px;border-radius:100%;box-shadow: 0px 0px 1px 2px #CCC;}
+.ruas .rua:first-child .iconrua,
+.ruas .rua:last-child .iconrua {background-color: #179ce4;box-shadow: 0 0 1px 2px #179ce4;height: 34px;left: -48px;top: -6px;width: 34px;}
+
+.collapse.navbar-collapse {
+    float: right;
+    width: 75%;
+}
+
+.navbar-header {
+    width: 25%;
+}
+
+.navbar > .container .navbar-brand {
+    color: #ccc;
+    padding: 6px 0 0 14px;
+}
+
+.navbar > .container .navbar-brand:hover {
+    color: #FFF;
+}
+
+

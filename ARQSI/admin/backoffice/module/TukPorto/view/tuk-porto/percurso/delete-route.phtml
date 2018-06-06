@@ -1,0 +1,27 @@
+Backoffice &raquo; Visitas &raquo; Remover estrada
+
+ <?php
+ $title = 'Deseja remover a estrada do percurso?';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <p>Tem a certeza que deseja remover a estrada do percurso?</p>
+ <?php
+
+ $url = $this->url('percurso', array(
+     'action' => 'deleteRoute',
+     'id'     => $this->id,
+     'idPercurso' => $this->idPercurso,
+     'idPoi' => $this->idPoi
+ ));     
+ ?>
+ <form action="<?php echo $url; ?>" method="post">
+     <div>
+         <input type="hidden" name="id" value="<?php echo (int)$id; ?>" />
+         <input type="hidden" name="idPercurso" value="<?php echo (int)$idPercurso; ?>" />
+         <input type="hidden" name="idPoi" value="<?php echo (int)$idPoi; ?>" />
+         <input type="submit" name="del" class="botaoRed" value="Sim" />
+         <input type="submit" name="del" class="botao" value="Não" />
+     </div>
+ </form>
